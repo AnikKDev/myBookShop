@@ -1,0 +1,7 @@
+.testimonials__container {
+  background: linear-gradient(0deg, rgba(8, 8, 8, 0.375), rgba(0, 0, 0, 0.691)),
+    url("https://images.unsplash.com/photo-1597817109745-c418f4875230?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}

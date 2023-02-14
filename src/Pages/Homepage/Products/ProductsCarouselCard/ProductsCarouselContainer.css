@@ -1,0 +1,15 @@
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  /* background: #fff; */
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+}
+.swiper .swiper-slide {
+  border-radius: 30px;
+  /*  */
+}

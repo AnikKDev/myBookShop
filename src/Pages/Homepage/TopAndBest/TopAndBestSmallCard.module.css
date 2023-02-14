@@ -1,0 +1,5 @@
+.topAndBestSmallCard__container:hover h2 {
+  color: #347758;
+  cursor: pointer;
+  transition: 0.3s;
+}
