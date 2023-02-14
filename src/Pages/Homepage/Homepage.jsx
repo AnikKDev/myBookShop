@@ -1,13 +1,19 @@
 import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
-import { lazyLoad } from "./LazyLoads/lazyload";
-const Banner = lazyLoad("../Banner/Banner");
+
+// import { lazyLoad } from "./LazyLoads/lazyload";
+/* const Banner = lazyLoad("../Banner/Banner");
 const Products = lazyLoad("../Products/Products");
 const Speciality = lazyLoad("../Speciality/Speciality");
 const Testimonial = lazyLoad("../Testimonial/Testimonial");
-const TopAndBest = lazyLoad("../TopAndBest/TopAndBest");
+const TopAndBest = lazyLoad("../TopAndBest/TopAndBest"); */
 import { BsArrowRight } from "react-icons/bs";
 import { AiFillCaretRight } from "react-icons/ai";
+import Banner from "./Banner/Banner";
+import Speciality from "./Speciality/Speciality";
+import Products from "./Products/Products";
+import Testimonial from "./Testimonial/Testimonial";
+import TopAndBest from "./TopAndBest/TopAndBest";
 const Homepage = () => {
   const [products, setProducts] = useState({});
   useEffect(() => {
@@ -15,7 +21,6 @@ const Homepage = () => {
       res.status === 200 ? setProducts(res.data) : setProducts({});
     });
   }, []);
-  console.log(products);
   return (
     <div>
       <Banner />
