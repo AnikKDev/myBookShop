@@ -5,11 +5,11 @@ import { GrFavorite } from "react-icons/gr";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 
 import styles from "./TopNav.module.css";
-import { useAuthState } from "react-firebase-hooks/auth";
+// import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../../firebase.init";
 import { Link, useNavigate } from "react-router-dom";
 const TopNav = () => {
-  const [user, loading, error] = useAuthState(auth);
+  // const [user, loading, error] = useAuthState(auth);
   const [inputContainerClass, setInputContainerClass] = useState(false);
   const inputRef = useRef(null);
   const navigate = useNavigate();
@@ -80,7 +80,7 @@ const TopNav = () => {
         {/* search input */}
         {searchBar}
       </div>
-      {user?.displayName ? (
+      {/* {user?.displayName ? (
         <div className="navbar-end">
           <div>
             <div
@@ -106,7 +106,7 @@ const TopNav = () => {
             </div>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

@@ -1,13 +1,16 @@
 import React, { useEffect } from "react";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+// import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { toast } from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
 import auth from "../../../firebase.init";
+import { useNavigate } from "react-router-dom";
+// import auth from "../../../firebase.init";
 import { BsGoogle } from "react-icons/bs";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import jwt_decode from "jwt-decode";
 const Signin = () => {
   const navigate = useNavigate();
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-  useEffect(() => {
+  // const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  /* useEffect(() => {
     if (user) {
       toast.success("Logged in as " + user?.user?.displayName);
 
@@ -16,11 +19,34 @@ const Signin = () => {
   }, [user]);
   if (error) {
     toast.error("Something went wrong. Please try again!");
-  }
+  } */
 
-  if (loading) {
+  /* if (loading) {
     return <p>loading...</p>;
-  }
+  } */
+
+  const provider = new GoogleAuthProvider();
+
+  const handleGoogleSignin = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credential(result);
+        // const token = credential.accessToken;
+        const user = result.user;
+
+        //
+        console.log(credential);
+        console.log(user.getIdToken());
+
+        /*  const token = credential.idToken.user.accessToken;
+        const decoded = jwt_decode(token);
+        console.log(decoded);
+        console.log(user); */
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div
       className="hero min-h-screen"
@@ -36,7 +62,7 @@ const Signin = () => {
             Welcome to MyBookShop. Please Register To Continue With Your Buys...
           </p>
           <button
-            onClick={() => signInWithGoogle()}
+            onClick={handleGoogleSignin}
             className="btn border-3 border-primary text-primary bg-base-100 font-extrabold hover:border-primary"
           >
             <span className="mx-2">

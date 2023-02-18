@@ -30,11 +30,11 @@ const Homepage = () => {
           <h1 className="text-5xl text-secondary flex items-center">
             Categories <AiFillCaretRight color={"#347758"} />
           </h1>
-          <Products productData={products.thriller} />
+          <Products productData={products?.thriller} />
         </div>
 
         <div data-aos="fade-up" data-aos-duration="2000">
-          <Products productData={products.adventure} />
+          <Products productData={products?.adventure} />
         </div>
         <div className="flex justify-end">
           <button className="underline font-bold text-2xl text-secondary hover:text-primary cursor-pointer flex items-center">
